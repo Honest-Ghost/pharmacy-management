@@ -1,0 +1,31 @@
+<div class="container">
+    <header class="text-center my-4">
+      <h2>Pharmacy Management System</h2>
+      <p class="lead">Manage medicines efficiently</p>
+    </header>
+  
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4" *ngIf="!isAuthPage()">
+      <div id="navbarNav" class="w-100">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a routerLink="/list" routerLinkActive="active" class="nav-link" [routerLinkActiveOptions]="{ exact: true }">Medicine List</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/add" routerLinkActive="active" class="nav-link">Add Medicine</a>
+          </li>
+          <li class="nav-item ms-auto dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user-circle"></i> {{ getUserDetails().userName }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+              <li><a class="dropdown-item" href="#" (click)="viewProfile($event)">Profile</a></li>
+              <li><a class="dropdown-item" href="#" (click)="logout($event)">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  
+    <router-outlet></router-outlet>
+  </div>

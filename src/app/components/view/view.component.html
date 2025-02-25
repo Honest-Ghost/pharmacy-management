@@ -1,0 +1,19 @@
+<div class="container mt-4" *ngIf="medicine">
+  <h2>View Medicine</h2>
+  <div class="mb-3">
+    <label class="form-label">Medicine Name</label>
+    <p class="form-control">{{ medicine.name }}</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Manufacturer</label>
+    <p class="form-control">{{ medicine.manufacturer }}</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Price</label>
+    <p class="form-control">{{ medicine.price }} Rupee</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Expiry Date</label>
+    <p class="form-control">{{ medicine.expiryDate | date: 'dd-MM-yyyy' }}</p>
+  </div>
+</div>

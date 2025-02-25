@@ -1,0 +1,114 @@
+.medicines-list-header {
+  font-size: 1.5rem;
+  color: #007bff;
+  // text-align: center;
+  // margin-bottom: 1.5rem;
+  // font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+}
+
+.selected-count-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.selected-count-box,
+.delete-selected-box {
+  // background-color: #007bff;
+  color: #000;
+  border-radius: 20px; /* Make rounder */
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  // font-weight: bold;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // border: none;
+  margin-right: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.selected-count-box .btn,
+.delete-selected-box .btn {
+  background: transparent;
+  border: none;
+  color: #000;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.selected-count-box .btn:hover,
+.delete-selected-box .btn:hover {
+  color: #ff0000;
+  transform: scale(1.1); /* Add scale effect */
+}
+
+.delete-icon {
+  color: #ff0000;
+}
+/* Add styles for selected rows */
+tr.selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-left: auto;
+  // border: 2px solid #000; /* Add black border */
+  border-radius: 20px; /* Match border radius */
+  padding: 0.5rem 1rem; /* Match padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Match box shadow */
+}
+
+.search-form .form-group {
+  margin-bottom: 0;
+}
+
+.search-form .form-control {
+  border-radius: 20px; 
+  padding: 0.5rem;
+  font-size: 0.875rem; 
+  border: 1px solid #ccc; 
+  width: 200px; 
+}
+
+.search-form .btn-stylish {
+  padding: 0.5rem 1rem;
+  border-radius: 20px; /* Make rounder */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.search-form .btn-stylish:hover {
+  background-color: #fff;
+  color: #007bff;
+  transform: scale(1.05);
+}
+
+.search-form .btn-stylish:active {
+  background-color: #004085;
+  color: #fff;
+  transform: scale(1);
+}
+/* Make the table scrollable */
+.table-responsive-scrollable {
+  max-height: 340px; /* Set the desired height */
+  overflow-y: auto;
+}
+.table-responsive-scrollable thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #fff; /* Ensure the header has a background color */
+}

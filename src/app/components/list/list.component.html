@@ -1,0 +1,68 @@
+<div class="container mt-4">
+  <h2 class="medicines-list-header">Medicines List</h2>
+  <div class="selected-count-container">
+    <span *ngIf="selectedCount > 0" class="selected-count-box">
+      <button class="btn btn-transparent p-0 me-2" (click)="deselectAll()" title="Deselect All">
+        <i class="fas fa-times"></i>
+      </button>
+      {{ selectedCount }} selected
+    </span>
+    <span *ngIf="selectedCount > 0" >
+      <button class="btn btn-transparent p-0 me-2 delete-btn" (click)="deleteSelected()" title="Delete Selected">
+        <i class="fas fa-trash-alt delete-icon"></i> Delete
+      </button>
+    </span>
+    <form class="search-form" (ngSubmit)="search()">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search by Medicine" [(ngModel)]="searchMedicineName" name="searchMedicineName" (input)="search()"/>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search by Manufacturer" [(ngModel)]="searchManufacturer" name="searchManufacturer" (input)="search()"/>
+      </div>
+      <button type="submit" class="btn btn-stylish">Search</button>
+    </form>
+  </div>
+  <div class="table-responsive-scrollable">
+    <table class="table table-striped">
+      <thead class="table-header">
+        <tr>
+          <th style="width: 1%;">
+            <input type="checkbox" (change)="selectAll($event)" title="Select All" />
+          </th>
+          <th>S.No</th>
+          <th>Name</th>
+          <th>Manufacturer</th>
+          <th>Price</th>
+          <th>Expiry Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let medicine of medicines; let i = index" [class.selected]="medicine.selected">
+          <td>
+            <input type="checkbox" [(ngModel)]="medicine.selected" (change)="updateSelectedCount()" />
+          </td>
+          <td>{{ i + 1 }}</td>
+          <td>{{ medicine.name }}</td>
+          <td>{{ medicine.manufacturer }}</td>
+          <td>{{ medicine.price }} Rupee</td>
+          <td>{{ medicine.expiryDate | date: 'dd-MM-yyyy' }}</td>
+          <td class="d-flex justify-content-left">
+            <!-- Eye Icon for View -->
+            <a [routerLink]="['/view', medicine.id]" class="text-info me-3" title="View details of this Medicine">
+              <i class="fas fa-eye"></i>
+            </a>
+            <!-- Edit Icon for Edit -->
+            <a [routerLink]="['/edit', medicine.id]" class="text-warning me-3" title="Edit this Medicine">
+              <i class="fas fa-edit"></i>
+            </a>
+            <!-- Delete Icon for Delete -->
+            <button (click)="deleteMedicine(medicine.id)" class="btn btn-transparent p-0" title="Delete this Medicine">
+              <i class="fas fa-trash-alt text-danger"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

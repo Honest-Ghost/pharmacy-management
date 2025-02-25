@@ -1,0 +1,19 @@
+<div class="profile-container">
+  <h3>Profile Details</h3>
+  <div class="profile-detail">
+    <strong>Name:</strong> {{ userDetails.userName }}
+  </div>
+  <div class="profile-detail">
+    <strong>User ID:</strong> {{ userDetails.userId }}
+  </div>
+  <div class="profile-detail">
+    <strong>Privilege:</strong> {{ userDetails.userPrivilege }}
+  </div>
+  <div class="profile-detail">
+    <!-- <strong>User Status:</strong> {{ userDetails.userStatus ==1 ? 'Active' : 'Inactive' }} -->
+    <strong>User Status:</strong>
+    <span [ngClass]="{'text-success': userDetails.userStatus == 1, 'text-danger': userDetails.userStatus == 0}">
+      {{ userDetails.userStatus == 1 ? 'Active' : 'Inactive' }}
+    </span>
+  </div>
+</div>

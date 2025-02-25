@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2>Edit Medicine</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form [formGroup]="editForm" (ngSubmit)="editMedicine()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Medicine Name</label>
+          <input type="text" id="name" class="form-control" formControlName="name" required />
+        </div>
+        <div class="mb-3">
+          <label for="manufacturer" class="form-label">Manufacturer</label>
+          <input type="text" id="manufacturer" class="form-control" formControlName="manufacturer" required />
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" id="price" class="form-control" formControlName="price" required />
+        </div>
+        <div class="mb-3">
+          <label for="expiryDate" class="form-label">Expiry Date</label>
+          <input type="date" id="expiryDate" class="form-control" formControlName="expiryDate" required />
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="editForm.invalid">Update Medicine</button>
+      </form>
+    </div>
+  </div>
+</div>
